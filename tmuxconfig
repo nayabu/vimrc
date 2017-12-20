@@ -1,0 +1,49 @@
+# tmux1.6
+# prefix key C-q
+set -g prefix C-q
+
+# C-b key allow
+unbind C-b
+
+# vim esc(need!)
+set -s escape-time 0
+
+#color
+set -g default-terminal "screen-256color"
+set -g terminal-overrides "xterm:colors=256"
+
+# reload
+bind R source-file '~/.tmux.conf'
+
+# move coursol vim key bind
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# resize pain vim key bind
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# | split
+bind | split-window -h
+bind - split-window -v
+
+# 番号基準値を変更
+set-option -g base-index 1
+
+# status bar
+set -g status-left-length 40
+set -g status-interval 60
+set -g status-justify centre
+setw -g monitor-activity on
+set -g visual-activity on
+
+unbind -n C-Right
+unbind -n C-Left
+bind -n C-Right next-window
+bind -n C-Left previous-window
+bind -n C-n next-window
+bind -n C-p previous-window
