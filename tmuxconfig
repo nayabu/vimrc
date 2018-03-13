@@ -1,4 +1,9 @@
-# tmux1.6
+# tmux1.4 (tmux2系は右クリックにset mouse onが必要で、クリップボード使用にShift key必須なので不便)
+# cd /usr/lcoal/src
+# wget https://github.com/tmux/tmux/releases/download/1.4/tmux-1.4.tar.gz
+# tar xzvf tmux-1.4.tar.gz
+# cd tmux-1.4
+# ./configure; make; make install;
 # prefix key C-q
 set -g prefix C-q
 
@@ -9,8 +14,10 @@ unbind C-b
 set -s escape-time 0
 
 #color
-set -g default-terminal "screen-256color"
-set -g terminal-overrides "xterm:colors=256"
+#set -g default-terminal "screen-256color"
+#set-option -g default-terminal screen-256color
+#set -g terminal-overrides 'xterm:colors=256'
+set-option -g default-terminal "xterm"
 
 # reload
 bind R source-file '~/.tmux.conf'
@@ -47,3 +54,5 @@ bind -n C-Right next-window
 bind -n C-Left previous-window
 bind -n C-n next-window
 bind -n C-p previous-window
+
+set -g history-limit 30000
