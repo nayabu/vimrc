@@ -55,6 +55,10 @@ filetype plugin indent on
 
 " nerdtree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+"nnoremap <M-n> gt
+"nnoremap <M-p> gT
+nnoremap <C-l> gt
+nnoremap <C-h> gT
 
 " last file point
 augroup vimrcEx
@@ -63,3 +67,5 @@ au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
 augroup END
 
 set ambiwidth=double
+"set nowrap
+set linebreak
