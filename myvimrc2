@@ -90,13 +90,8 @@ endif
 "endif
 
 " php-cs-fixer (memo :NeoBundleUpdate)
-let g:php_cs_fixer_path =
-"/Users/akinori.yanagikawa/.composer/vendor/bin/php-cs-fixer" " define the
-path to the php-cs-fixer.phar
-let g:php_cs_fixer_config_file =
-'/Users/akinori.yanagikawa/works/.php_cs.php'          " options:
---config-file
-let g:php_cs_fixer_cache = '/Users/akinori.yanagikawa/works/.php_cs.cache'
-         " options: --cache-file
+let g:php_cs_fixer_path = "/Users/akinori.yanagikawa/.composer/vendor/bin/php-cs-fixer" " define the path to the php-cs-fixer.phar
+let g:php_cs_fixer_config_file = '/Users/akinori.yanagikawa/works/.php_cs.php'          " options: --config-file
+let g:php_cs_fixer_cache = '/Users/akinori.yanagikawa/works/.php_cs.cach                " options: --cache-file
 "autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 autocmd QuitPre *.php silent! call PhpCsFixerFixFile()
