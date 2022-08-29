@@ -45,6 +45,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 "insert here your Neobundle plugins"
 NeoBundle 'scrooloose/nerdtree'
+"NeoBundle 'stephpy/vim-php-cs-fixer'
+" vim go cloneでinstallしたので不要
+NeoBundle 'fatih/vim-go'
+let g:go_null_module_warning = 0
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
@@ -69,3 +73,28 @@ augroup END
 set ambiwidth=double
 "set nowrap
 set linebreak
+
+autocmd BufNewFile,BufRead *.ts,*.vue  set filetype=javascript
+
+" go lang
+if expand("%:t") =~ ".*\.go"
+    set noexpandtab
+    set tabstop=4
+    set shiftwidth=4
+endif
+" ts, vue
+if expand("%:t") =~ ".*\.[ts|vue|js]"
+    set tabstop=2
+    set shiftwidth=2
+endif
+
+" php-cs-fixer (memo :NeoBundleUpdate)
+"let g:php_cs_fixer_path =
+"/Users/akinori.yanagikawa/.composer/vendor/bin/php-cs-fixer" " define the path to the php-cs-fixer.phar
+"let g:php_cs_fixer_config_file =
+"'/Users/akinori.yanagikawa/works/.php_cs.php'          " options:
+"--config-file
+"let g:php_cs_fixer_cache = '/Users/akinori.yanagikawa/works/.php_cs.cache'
+"         " options: --cache-file
+"autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+"autocmd QuitPre *.php silent! call PhpCsFixerFixFile()
